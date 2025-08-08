@@ -27,7 +27,7 @@ class StudentModelViewSet(DefaultAuthMixin, viewsets.ModelViewSet):
     )
     search_fields = ["name", "email"]
 
-    @action(detail=True, methods=["GET"], url_name="avg_overview", url_path="avg-overview")
+    @action(detail=True, methods=["GET"], url_name="avg-overview", url_path="avg-overview")
     def avg_overview(self, request, pk=None):
         """
         Retrieve all report cards for a student in a given year,

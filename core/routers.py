@@ -5,10 +5,10 @@ from .viewsets import (
 )
 
 router = DefaultRouter()
-router.register(r"students", StudentModelViewSet)
-router.register(r"subjects", SubjectModelViewSet)
-router.register(r"report-cards", ReportCardModelViewSet)
-router.register(r"marks", MarkModelViewSet)
+router.register(r"students", StudentModelViewSet, basename="student")
+router.register(r"subjects", SubjectModelViewSet, basename="subject")
+router.register(r"report-cards", ReportCardModelViewSet, basename="report-card")
+router.register(r"marks", MarkModelViewSet, basename="mark")
 
 urlpatterns = [
     path("", include(router.urls)),
