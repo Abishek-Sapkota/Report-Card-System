@@ -20,7 +20,7 @@ class Subject(models.Model):
 
 
 class ReportCard(models.Model):
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, db_index=True)
     term = models.CharField(max_length=100, db_index=True)
     year = models.IntegerField(db_index=True)
 
@@ -30,9 +30,9 @@ class ReportCard(models.Model):
 
 class Mark(models.Model):
     report_card = models.ForeignKey(
-        ReportCard, on_delete=models.CASCADE, related_name="marks"
+        ReportCard, on_delete=models.CASCADE, related_name="marks", db_index=True
     )
-    subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, db_index=True)
     score = models.DecimalField(max_digits=5, decimal_places=2)
 
     class Meta:
