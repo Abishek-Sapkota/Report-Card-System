@@ -103,7 +103,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"token\": \"61d0d7354ccef2ccb9ce4c2bd93f694c824969dd\"\n}"
+					"body": "{\n    \"token\": \"<your-token>\"\n}"
 				}
 			]
 		},
@@ -117,9 +117,9 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"value": "Token <your-token>",
 						"type": "text"
-					}
+					}`
 				],
 				"body": {
 					"mode": "raw",
@@ -149,7 +149,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"value": "Token <your-token>",
 								"type": "text"
 							}
 						],
@@ -233,7 +233,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"value": "Token <your-token>",
 						"type": "text"
 					}
 				],
@@ -273,7 +273,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"value": "Token <your-token>",
 								"type": "text"
 							}
 						],
@@ -365,7 +365,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"value": "Token <your-token>",
 						"type": "text"
 					}
 				],
@@ -397,7 +397,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"value": "Token <your-token>",
 								"type": "text"
 							}
 						],
@@ -478,7 +478,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"value": "Token <your-token>",
 						"type": "text"
 					}
 				],
@@ -510,7 +510,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"value": "Token <your-token>",
 								"type": "text"
 							}
 						],
@@ -591,7 +591,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"value": "Token <your-token>",
 						"type": "text"
 					}
 				],
@@ -623,7 +623,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"value": "Token <your-token>",
 								"type": "text"
 							}
 						],
@@ -704,7 +704,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"value": "Token <your-token>",
 						"type": "text"
 					}
 				],
@@ -736,7 +736,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"value": "Token <your-token>",
 								"type": "text"
 							}
 						],
@@ -820,7 +820,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"value": "Token <your-token>",
 						"type": "text"
 					}
 				],
@@ -870,7 +870,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"value": "Token <your-token>",
 								"type": "text"
 							}
 						],
@@ -972,7 +972,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"value": "Token <your-token>",
 						"type": "text"
 					}
 				],
@@ -1005,7 +1005,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"value": "Token <your-token>",
 								"type": "text"
 							}
 						],
@@ -1087,7 +1087,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"value": "Token <your-token>",
 						"type": "text"
 					}
 				],
@@ -1119,7 +1119,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"value": "Token <your-token>",
 								"type": "text"
 							}
 						],
@@ -1203,7 +1203,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"value": "Token <your-token>",
 						"type": "text"
 					}
 				],
@@ -1241,7 +1241,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"value": "Token <your-token>",
 								"type": "text"
 							}
 						],
