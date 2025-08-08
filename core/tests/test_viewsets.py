@@ -9,7 +9,6 @@ from core.models import Student, Subject, ReportCard, Mark
 
 class BaseViewSetTest(APITestCase):
     def setUp(self):
-        # Create a user and get token
         self.user = User.objects.create_user(username="testuser", password="pass1234")
         self.token = Token.objects.create(user=self.user)
         self.client = APIClient()

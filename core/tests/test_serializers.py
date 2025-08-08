@@ -62,9 +62,9 @@ class ReportCardModelSerializerTest(TestCase):
     def test_deserialize_report_card_duplicate(self):
         # Create first report card
         ReportCard.objects.create(student=self.student, term="Term1", year="2023")
-        data = {"student": self.student.id, "term": "term1", "year": "2023"}  # Case-insensitive term
+        data = {"student": self.student.id, "term": "term1", "year": "2023"}
 
-        serializer = ReportCardSerializer(data=data)  # Note: uses ReportCardSerializer (has validate)
+        serializer = ReportCardSerializer(data=data)
         with self.assertRaises(ValidationError) as cm:
             serializer.is_valid(raise_exception=True)
         self.assertIn("already exists", str(cm.exception))
@@ -141,7 +141,7 @@ class AddMarkSerializerTest(TestCase):
         self.assertTrue(serializer.is_valid(), serializer.errors)
 
     def test_add_mark_serializer_missing_fields(self):
-        data = {"score": "79.5"}  # Missing report_card and subject
+        data = {"score": "79.5"}
         serializer = AddMarkSerializer(data=data)
         self.assertFalse(serializer.is_valid())
         self.assertIn("report_card", serializer.errors)

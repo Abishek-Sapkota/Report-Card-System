@@ -1,7 +1,6 @@
-# app/tasks.py
 from celery import shared_task
 from django.db.models import Avg, F
-from .models import Student, Mark, ReportCard
+from .models import Mark, ReportCard
 from .serializers import ReportCardSerializer
 
 
