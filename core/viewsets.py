@@ -83,6 +83,12 @@ class ReportCardModelViewSet(DefaultAuthMixin, viewsets.ModelViewSet):
 class MarkModelViewSet(DefaultAuthMixin, viewsets.ModelViewSet):
     queryset = Mark.objects.all().select_related("subject", "report_card")
     serializer_class = AddMarkSerializer
+    filter_backends = (
+        DjangoFilterBackend,
+        filters.SearchFilter,
+    )
+    filterset_fields = ["report_card", "subject"]
+    search_fields = []
 
     def get_serializer_class(self):
         if self.action in ["list", "retrieve"]:

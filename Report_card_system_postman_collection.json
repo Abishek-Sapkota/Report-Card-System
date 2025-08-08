@@ -1,0 +1,1354 @@
+{
+	"info": {
+		"_postman_id": "e8a40791-54e9-4565-89ef-d79f4eb82708",
+		"name": "Report card",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34857154"
+	},
+	"item": [
+		{
+			"name": "Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"abi\",\n    \"password\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/token/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"token",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"abi\",\n    \"password\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/token/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"token",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 08 Aug 2025 13:18:26 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"61d0d7354ccef2ccb9ce4c2bd93f694c824969dd\"\n}"
+				}
+			]
+		},
+		{
+			"name": "students",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/students/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"students",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "students",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/students/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 08 Aug 2025 13:18:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Oliver MacGyver\",\n        \"email\": \"Jillian_Greenholt@hotmail.com\",\n        \"date_of_birth\": \"2000-12-25\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Over view",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/students/1/avg-overview/?year=2020",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"students",
+						"1",
+						"avg-overview",
+						""
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2020"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Over view",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/students/1/avg-overview/?year=2020",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								"1",
+								"avg-overview",
+								""
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2020"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 08 Aug 2025 13:19:09 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1586"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"report_cards\": [\n        {\n            \"id\": 1,\n            \"student\": 1,\n            \"term\": \"term1\",\n            \"year\": 2020,\n            \"marks\": [\n                {\n                    \"id\": 1,\n                    \"subject\": 1,\n                    \"score\": \"50.00\",\n                    \"subject_detail\": {\n                        \"id\": 1,\n                        \"name\": \"Physics\",\n                        \"code\": \"PSY\"\n                    }\n                },\n                {\n                    \"id\": 2,\n                    \"subject\": 2,\n                    \"score\": \"60.00\",\n                    \"subject_detail\": {\n                        \"id\": 2,\n                        \"name\": \"Chemistry\",\n                        \"code\": \"CHe\"\n                    }\n                },\n                {\n                    \"id\": 3,\n                    \"subject\": 3,\n                    \"score\": \"70.00\",\n                    \"subject_detail\": {\n                        \"id\": 3,\n                        \"name\": \"Maths\",\n                        \"code\": \"MAT\"\n                    }\n                },\n                {\n                    \"id\": 4,\n                    \"subject\": 4,\n                    \"score\": \"73.00\",\n                    \"subject_detail\": {\n                        \"id\": 4,\n                        \"name\": \"Nepali\",\n                        \"code\": \"Nep\"\n                    }\n                },\n                {\n                    \"id\": 5,\n                    \"subject\": 5,\n                    \"score\": \"73.00\",\n                    \"subject_detail\": {\n                        \"id\": 5,\n                        \"name\": \"English\",\n                        \"code\": \"ENG\"\n                    }\n                }\n            ],\n            \"student_detail\": {\n                \"id\": 1,\n                \"name\": \"Oliver MacGyver\",\n                \"email\": \"Jillian_Greenholt@hotmail.com\",\n                \"date_of_birth\": \"2000-12-25\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"student\": 1,\n            \"term\": \"term2\",\n            \"year\": 2020,\n            \"marks\": [\n                {\n                    \"id\": 6,\n                    \"subject\": 5,\n                    \"score\": \"44.00\",\n                    \"subject_detail\": {\n                        \"id\": 5,\n                        \"name\": \"English\",\n                        \"code\": \"ENG\"\n                    }\n                },\n                {\n                    \"id\": 7,\n                    \"subject\": 4,\n                    \"score\": \"54.00\",\n                    \"subject_detail\": {\n                        \"id\": 4,\n                        \"name\": \"Nepali\",\n                        \"code\": \"Nep\"\n                    }\n                },\n                {\n                    \"id\": 8,\n                    \"subject\": 3,\n                    \"score\": \"64.00\",\n                    \"subject_detail\": {\n                        \"id\": 3,\n                        \"name\": \"Maths\",\n                        \"code\": \"MAT\"\n                    }\n                },\n                {\n                    \"id\": 9,\n                    \"subject\": 2,\n                    \"score\": \"32.00\",\n                    \"subject_detail\": {\n                        \"id\": 2,\n                        \"name\": \"Chemistry\",\n                        \"code\": \"CHe\"\n                    }\n                },\n                {\n                    \"id\": 10,\n                    \"subject\": 1,\n                    \"score\": \"39.00\",\n                    \"subject_detail\": {\n                        \"id\": 1,\n                        \"name\": \"Physics\",\n                        \"code\": \"PSY\"\n                    }\n                }\n            ],\n            \"student_detail\": {\n                \"id\": 1,\n                \"name\": \"Oliver MacGyver\",\n                \"email\": \"Jillian_Greenholt@hotmail.com\",\n                \"date_of_birth\": \"2000-12-25\"\n            }\n        }\n    ],\n    \"subject_averages\": [\n        {\n            \"subject_name\": \"Chemistry\",\n            \"average_score\": 46\n        },\n        {\n            \"subject_name\": \"English\",\n            \"average_score\": 58.5\n        },\n        {\n            \"subject_name\": \"Maths\",\n            \"average_score\": 67\n        },\n        {\n            \"subject_name\": \"Nepali\",\n            \"average_score\": 63.5\n        },\n        {\n            \"subject_name\": \"Physics\",\n            \"average_score\": 44.5\n        }\n    ],\n    \"overall_average\": 55.9\n}"
+				}
+			]
+		},
+		{
+			"name": "subjects",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/subjects/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"subjects",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "subjects",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/subjects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"subjects",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 08 Aug 2025 13:19:20 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "195"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Physics\",\n        \"code\": \"PSY\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Chemistry\",\n        \"code\": \"CHe\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Maths\",\n        \"code\": \"MAT\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Nepali\",\n        \"code\": \"Nep\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"English\",\n        \"code\": \"ENG\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "subjects",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Social\",\n    \"code\": \"SOC\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/subjects/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"subjects",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "subjects",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Social\",\n    \"code\": \"SOC\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/subjects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"subjects",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 08 Aug 2025 13:19:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"name\": \"Social\",\n    \"code\": \"SOC\"\n}"
+				}
+			]
+		},
+		{
+			"name": "students",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\",\n    \"date_of_birth\": \"2000-12-25\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/students/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"students",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "students",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\",\n    \"date_of_birth\": \"2000-12-25\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/students/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 08 Aug 2025 13:20:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "105"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"Shawna Gutkowski Jr.\",\n    \"email\": \"Raymundo_Schultz1@yahoo.com\",\n    \"date_of_birth\": \"2000-12-25\"\n}"
+				}
+			]
+		},
+		{
+			"name": "report card",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"student\": \"1\",\n    \"term\": \"term2\",\n    \"year\": \"2021\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/report-cards/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"report-cards",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "report card",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"student\": \"1\",\n    \"term\": \"term2\",\n    \"year\": \"2021\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/report-cards/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"report-cards",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 08 Aug 2025 13:20:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "178"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"student\": 1,\n    \"term\": \"term2\",\n    \"year\": 2021,\n    \"marks\": [],\n    \"student_detail\": {\n        \"id\": 1,\n        \"name\": \"Oliver MacGyver\",\n        \"email\": \"Jillian_Greenholt@hotmail.com\",\n        \"date_of_birth\": \"2000-12-25\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "report card",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"student\": \"1\",\n    \"term\": \"term1\",\n    \"year\": \"2020\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/report-cards/?limit=10&offset=0&search=term2&student=1",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"report-cards",
+						""
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "search",
+							"value": "term2"
+						},
+						{
+							"key": "student",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "report card",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"student\": \"1\",\n    \"term\": \"term1\",\n    \"year\": \"2020\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/report-cards/?limit=10&offset=0&search=term2&student=1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"report-cards",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "search",
+									"value": "term2"
+								},
+								{
+									"key": "student",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 08 Aug 2025 13:21:27 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "873"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 2,\n            \"student\": 1,\n            \"term\": \"term2\",\n            \"year\": 2020,\n            \"marks\": [\n                {\n                    \"id\": 6,\n                    \"subject\": 5,\n                    \"score\": \"44.00\",\n                    \"subject_detail\": {\n                        \"id\": 5,\n                        \"name\": \"English\",\n                        \"code\": \"ENG\"\n                    }\n                },\n                {\n                    \"id\": 7,\n                    \"subject\": 4,\n                    \"score\": \"54.00\",\n                    \"subject_detail\": {\n                        \"id\": 4,\n                        \"name\": \"Nepali\",\n                        \"code\": \"Nep\"\n                    }\n                },\n                {\n                    \"id\": 8,\n                    \"subject\": 3,\n                    \"score\": \"64.00\",\n                    \"subject_detail\": {\n                        \"id\": 3,\n                        \"name\": \"Maths\",\n                        \"code\": \"MAT\"\n                    }\n                },\n                {\n                    \"id\": 9,\n                    \"subject\": 2,\n                    \"score\": \"32.00\",\n                    \"subject_detail\": {\n                        \"id\": 2,\n                        \"name\": \"Chemistry\",\n                        \"code\": \"CHe\"\n                    }\n                },\n                {\n                    \"id\": 10,\n                    \"subject\": 1,\n                    \"score\": \"39.00\",\n                    \"subject_detail\": {\n                        \"id\": 1,\n                        \"name\": \"Physics\",\n                        \"code\": \"PSY\"\n                    }\n                }\n            ],\n            \"student_detail\": {\n                \"id\": 1,\n                \"name\": \"Oliver MacGyver\",\n                \"email\": \"Jillian_Greenholt@hotmail.com\",\n                \"date_of_birth\": \"2000-12-25\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"student\": 1,\n            \"term\": \"term2\",\n            \"year\": 2021,\n            \"marks\": [],\n            \"student_detail\": {\n                \"id\": 1,\n                \"name\": \"Oliver MacGyver\",\n                \"email\": \"Jillian_Greenholt@hotmail.com\",\n                \"date_of_birth\": \"2000-12-25\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "report card detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"student\": \"1\",\n    \"term\": \"term1\",\n    \"year\": \"2020\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/report-cards/1/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"report-cards",
+						"1",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "report card detail",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"student\": \"1\",\n    \"term\": \"term1\",\n    \"year\": \"2020\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/report-cards/1/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"report-cards",
+								"1",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 08 Aug 2025 13:22:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "641"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"student\": 1,\n    \"term\": \"term1\",\n    \"year\": 2020,\n    \"marks\": [\n        {\n            \"id\": 1,\n            \"subject\": 1,\n            \"score\": \"50.00\",\n            \"subject_detail\": {\n                \"id\": 1,\n                \"name\": \"Physics\",\n                \"code\": \"PSY\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"subject\": 2,\n            \"score\": \"60.00\",\n            \"subject_detail\": {\n                \"id\": 2,\n                \"name\": \"Chemistry\",\n                \"code\": \"CHe\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"subject\": 3,\n            \"score\": \"70.00\",\n            \"subject_detail\": {\n                \"id\": 3,\n                \"name\": \"Maths\",\n                \"code\": \"MAT\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"subject\": 4,\n            \"score\": \"73.00\",\n            \"subject_detail\": {\n                \"id\": 4,\n                \"name\": \"Nepali\",\n                \"code\": \"Nep\"\n            }\n        },\n        {\n            \"id\": 5,\n            \"subject\": 5,\n            \"score\": \"73.00\",\n            \"subject_detail\": {\n                \"id\": 5,\n                \"name\": \"English\",\n                \"code\": \"ENG\"\n            }\n        }\n    ],\n    \"student_detail\": {\n        \"id\": 1,\n        \"name\": \"Oliver MacGyver\",\n        \"email\": \"Jillian_Greenholt@hotmail.com\",\n        \"date_of_birth\": \"2000-12-25\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "marks",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"score\": \"59\",\n    \"report_card\": \"3\",\n    \"subject\": \"5\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/marks/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"marks",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "marks",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"score\": \"59\",\n    \"report_card\": \"3\",\n    \"subject\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/marks/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"marks",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 08 Aug 2025 13:22:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 11,\n    \"score\": \"59.00\",\n    \"report_card\": 3,\n    \"subject\": 2\n}"
+				}
+			]
+		},
+		{
+			"name": "marks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"score\": \"50\",\n    \"report_card\": \"1\",\n    \"subject\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/marks/?subject=1",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"marks",
+						""
+					],
+					"query": [
+						{
+							"key": "subject",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "marks",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 61d0d7354ccef2ccb9ce4c2bd93f694c824969dd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"score\": \"50\",\n    \"report_card\": \"1\",\n    \"subject\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/marks/?subject=1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"marks",
+								""
+							],
+							"query": [
+								{
+									"key": "subject",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 08 Aug 2025 13:28:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.12.4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "150"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"score\": \"50.00\",\n        \"subject\": {\n            \"id\": 1,\n            \"name\": \"Physics\",\n            \"code\": \"PSY\"\n        }\n    },\n    {\n        \"id\": 10,\n        \"score\": \"39.00\",\n        \"subject\": {\n            \"id\": 1,\n            \"name\": \"Physics\",\n            \"code\": \"PSY\"\n        }\n    }\n]"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

@@ -19,24 +19,27 @@ A Django REST Framework based API to manage students, subjects, report cards, an
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/reportcard-system.git
-   cd reportcard-system
-````
+   git clone https://github.com/Abishek-Sapkota/Report-Card-System.git
+   cd Report-Card-System
+   ```
 
-2. Create a virtual environment and activate it:
+2. Create a virtual environment, activate it and install dependencies:
+   - Using `pip`
 
    ```bash
    python3 -m venv venv
    source venv/bin/activate
-   ```
-
-3. Install dependencies:
-
-   ```bash
    pip install -r requirements.txt
    ```
-
-4. Configure your database settings in `settings.py` (default is PostgreSQL).
+   - Using `uv`
+   ```bash
+   uv init
+   uv sync --locked
+   ```
+   OR
+   ```bash
+   uv pip install -r requirements.txt
+   ```
 
 ---
 
@@ -57,31 +60,7 @@ Start the development server:
 ```bash
 python manage.py runserver
 ```
-
----
-
-## API Endpoints
-
-| Endpoint                                     | Method | Description                                          |
-| -------------------------------------------- | ------ | ---------------------------------------------------- |
-| `/api/students/`                             | GET    | List all students                                    |
-| `/api/students/`                             | POST   | Create a new student                                 |
-| `/api/students/{id}/`                        | GET    | Retrieve a specific student                          |
-| `/api/students/{id}/`                        | PUT    | Update a student                                     |
-| `/api/students/{id}/`                        | DELETE | Delete a student                                     |
-| `/api/students/{id}/avg-overview/?year=YYYY` | GET    | Get average marks overview for the student in a year |
-
-\| `/api/subjects/`               | GET    | List all subjects                             |
-\| `/api/subjects/`               | POST   | Create a new subject                          |
-\| `/api/subjects/{id}/`          | GET    | Retrieve a specific subject                   |
-
-\| `/api/report-cards/`           | GET    | List report cards                             |
-\| `/api/report-cards/`           | POST   | Create a report card                          |
-
-\| `/api/marks/`                 | GET    | List marks                                   |
-\| `/api/marks/`                 | POST   | Add a mark                                   |
-
-### Filtering & Searching
+ ### Filtering & Searching
 
 * Students: filter by `name`, `email` (search)
 * Subjects: filter by `name`, `code` (search)
@@ -120,30 +99,3 @@ You can find the Postman collection for this API in `postman_collection.json`.
 Import it into Postman to quickly test and explore all API endpoints.
 
 ---
-
-## Contributing
-
-Contributions are welcome! Please open issues or submit pull requests.
-Make sure tests pass before submitting.
-
----
-
-## License
-
-MIT License
-
----
-
-*Created by Your Name*
-
-```
-
----
-
-If you want, I can also generate:  
-- A `requirements.txt` file  
-- Example `.env` for settings  
-- Postman collection JSON export  
-
-Just ask!
-```

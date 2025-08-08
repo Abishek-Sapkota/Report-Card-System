@@ -53,11 +53,11 @@ class MarkModelSerializer(serializers.ModelSerializer):
 
 
 class MarkSerializer(serializers.ModelSerializer):
-    subject_detail = SubjectModelSerializer(source="subject", read_only=True)
+    subject = SubjectModelSerializer(read_only=True)
 
     class Meta:
         model = Mark
-        fields = ["id", "subject", "score", "subject_detail"]
+        fields = ["id", "score", "subject"]
 
 
 class ReportCardSerializer(serializers.ModelSerializer):
@@ -78,6 +78,15 @@ class ReportCardSerializer(serializers.ModelSerializer):
 
 
 class AddMarkSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Mark
-        fields = "__all__"
+        fields = [
+            "id",
+            "subject",
+            "report_card",
+            "score"
+        ]
+    extra_kwargs = {
+        "id": {"read_only": True},
+    }
