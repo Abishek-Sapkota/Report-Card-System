@@ -68,6 +68,14 @@ class ReportCardSerializer(serializers.ModelSerializer):
         model = ReportCard
         fields = ["id", "student", "term", "year", "marks", "student_detail"]
 
+    def validate(self, data):
+        student = data.get("student")
+        term = data.get("term")
+        year = data.get("year")
+        if ReportCard.objects.filter(student=student, term__iexact=term, year=year).exists():
+            raise serializers.ValidationError(f"Report card for this student for {term} {year} already exists")
+        return data
+
 
 class AddMarkSerializer(serializers.ModelSerializer):
     class Meta:

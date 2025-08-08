@@ -21,8 +21,8 @@ class Subject(models.Model):
 
 class ReportCard(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    term = models.CharField(max_length=100)
-    year = models.IntegerField()
+    term = models.CharField(max_length=100, db_index=True)
+    year = models.IntegerField(db_index=True)
 
     def __str__(self):
         return f"{self.student.name}-{self.term}-{self.year}"
