@@ -60,19 +60,11 @@ Start the development server:
 ```bash
 python manage.py runserver
 ```
- ### Filtering & Searching
-
-* Students: filter by `name`, `email` (search)
-* Subjects: filter by `name`, `code` (search)
-* ReportCards: filter by `student`, search by `term`
-* Marks: no filters by default
-
----
 
 ## Authentication
 
 * Token Authentication is enabled for all endpoints.
-* Obtain token using DRF’s token obtain endpoint or your custom login.
+* Token can be obtained using `/api/token` endpoint
 * Include header:
 
   ```
@@ -95,7 +87,7 @@ Tests cover models, serializers, and API endpoints.
 
 ## Postman Collection
 
-You can find the Postman collection for this API in `postman_collection.json`.
+You can find the Postman collection for this API in [Report_card_system_postman_collection.json](./Report_card_system_postman_collection.json).
 Import it into Postman to quickly test and explore all API endpoints.
 
 ---
