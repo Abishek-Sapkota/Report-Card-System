@@ -11,6 +11,7 @@ from .serializers import (
     StudentModelSerializer, SubjectModelSerializer, ReportCardSerializer,
     MarkSerializer, AddMarkSerializer
 )
+from .tasks import calculate_student_overview
 
 
 class DefaultAuthMixin:
@@ -39,6 +40,7 @@ class StudentModelViewSet(DefaultAuthMixin, viewsets.ModelViewSet):
             from rest_framework import status
             return Response({"message": "Year is required to filter data!!"}, status=status.HTTP_400_BAD_REQUEST)
         student = self.get_object()
+        overview_dict = calculate_student_overview.delay(student.pk, year)
         qs = ReportCard.objects.filter(student=student, year=year).prefetch_related("marks__subject")
         cards_serializer = ReportCardSerializer(qs, many=True)
 

@@ -19,7 +19,6 @@ class BaseViewSetTest(APITestCase):
 class StudentViewSetTest(BaseViewSetTest):
     def setUp(self):
         super().setUp()
-        # Create a student for tests
         self.student = Student.objects.create(name="John Doe", email="john@example.com", date_of_birth="1990-01-01")
 
     def test_list_students(self):
@@ -41,7 +40,6 @@ class StudentViewSetTest(BaseViewSetTest):
         self.assertIn("message", response.data)
 
     def test_avg_overview_with_year(self):
-        # Setup ReportCards, Marks for the student
         sub_math = Subject.objects.create(name="Math", code="MAT")
         sub_phy = Subject.objects.create(name="Physics", code="PSY")
         report_card = ReportCard.objects.create(student=self.student, year="2023", term="Fall")

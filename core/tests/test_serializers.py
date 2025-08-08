@@ -1,7 +1,7 @@
 from django.test import TestCase
 from decimal import Decimal
-from .models import Student, Subject, ReportCard, Mark
-from .serializers import (
+from core.models import Student, Subject, ReportCard, Mark
+from core.serializers import (
     StudentModelSerializer,
     SubjectModelSerializer,
     ReportCardModelSerializer,
@@ -15,7 +15,7 @@ from rest_framework.exceptions import ValidationError
 
 class StudentSerializerTest(TestCase):
     def test_serialize_student(self):
-        student = Student.objects.create(name="Alice", email="alice@example.com")
+        student = Student.objects.create(name="Alice", email="alice@example.com", date_of_birth="2000-10-10")
         serializer = StudentModelSerializer(student)
         data = serializer.data
         self.assertEqual(data["name"], "Alice")
@@ -23,7 +23,7 @@ class StudentSerializerTest(TestCase):
         self.assertIn("id", data)
 
     def test_deserialize_student_valid(self):
-        data = {"name": "Bob", "email": "bob@example.com"}
+        data = {"name": "Bob", "email": "bob@example.com", "date_of_birth": "2000-10-10"}
         serializer = StudentModelSerializer(data=data)
         self.assertTrue(serializer.is_valid(), serializer.errors)
 
@@ -44,25 +44,25 @@ class SubjectSerializerTest(TestCase):
 
 class ReportCardModelSerializerTest(TestCase):
     def setUp(self):
-        self.student = Student.objects.create(name="Carl", email="carl@example.com")
+        self.student = Student.objects.create(name="Carl", email="carl@example.com", date_of_birth="2000-10-10")
 
     def test_serialize_report_card(self):
         rc = ReportCard.objects.create(student=self.student, term="Fall", year="2023")
         serializer = ReportCardModelSerializer(rc)
         data = serializer.data
         self.assertEqual(data["term"], "Fall")
-        self.assertEqual(data["year"], "2023")
+        self.assertEqual(data["year"], 2023)
         self.assertEqual(data["student"], self.student.id)
 
     def test_deserialize_report_card_valid(self):
-        data = {"student": self.student.id, "term": "Spring", "year": "2024"}
+        data = {"student": self.student.id, "term": "term2", "year": "2024"}
         serializer = ReportCardModelSerializer(data=data)
         self.assertTrue(serializer.is_valid(), serializer.errors)
 
     def test_deserialize_report_card_duplicate(self):
         # Create first report card
-        ReportCard.objects.create(student=self.student, term="Fall", year="2023")
-        data = {"student": self.student.id, "term": "fall", "year": "2023"}  # Case-insensitive term
+        ReportCard.objects.create(student=self.student, term="Term1", year="2023")
+        data = {"student": self.student.id, "term": "term1", "year": "2023"}  # Case-insensitive term
 
         serializer = ReportCardSerializer(data=data)  # Note: uses ReportCardSerializer (has validate)
         with self.assertRaises(ValidationError) as cm:
@@ -72,15 +72,15 @@ class ReportCardModelSerializerTest(TestCase):
 
 class MarkModelSerializerTest(TestCase):
     def setUp(self):
-        self.student = Student.objects.create(name="Dana", email="dana@example.com")
+        self.student = Student.objects.create(name="Dana", email="dana@example.com", date_of_birth="1999-10-10")
         self.subject = Subject.objects.create(name="History", code="HIST")
-        self.report_card = ReportCard.objects.create(student=self.student, term="Winter", year="2023")
+        self.report_card = ReportCard.objects.create(student=self.student, term="term3", year="2023")
 
     def test_serialize_mark(self):
         mark = Mark.objects.create(report_card=self.report_card, subject=self.subject, score=Decimal("78.5"))
         serializer = MarkModelSerializer(mark)
         data = serializer.data
-        self.assertEqual(data["score"], "78.5")
+        self.assertEqual(data["score"], "78.50")
         self.assertEqual(data["subject"], self.subject.id)
         self.assertEqual(data["report_card"], self.report_card.id)
 
@@ -96,40 +96,40 @@ class MarkModelSerializerTest(TestCase):
 
 class MarkSerializerTest(TestCase):
     def setUp(self):
-        self.student = Student.objects.create(name="Eve", email="eve@example.com")
+        self.student = Student.objects.create(name="Eve", email="eve@example.com", date_of_birth="2004-10-14")
         self.subject = Subject.objects.create(name="Geography", code="GEO")
-        self.report_card = ReportCard.objects.create(student=self.student, term="Summer", year="2023")
+        self.report_card = ReportCard.objects.create(student=self.student, term="term2", year="2023")
         self.mark = Mark.objects.create(report_card=self.report_card, subject=self.subject, score=Decimal("92.0"))
 
     def test_mark_serializer_includes_subject_detail(self):
         serializer = MarkSerializer(self.mark)
         data = serializer.data
-        self.assertEqual(data["score"], "92.0")
+        self.assertEqual(data["score"], "92.00")
         self.assertIn("subject_detail", data)
         self.assertEqual(data["subject_detail"]["name"], "Geography")
 
 
 class ReportCardSerializerTest(TestCase):
     def setUp(self):
-        self.student = Student.objects.create(name="Frank", email="frank@example.com")
+        self.student = Student.objects.create(name="Frank", email="frank@example.com", date_of_birth="2002-1-10")
         self.subject = Subject.objects.create(name="Physics", code="PHY")
-        self.report_card = ReportCard.objects.create(student=self.student, term="Fall", year="2023")
+        self.report_card = ReportCard.objects.create(student=self.student, term="final", year="2023")
         self.mark = Mark.objects.create(report_card=self.report_card, subject=self.subject, score=Decimal("85"))
 
     def test_report_card_serializer_includes_nested(self):
         serializer = ReportCardSerializer(self.report_card)
         data = serializer.data
-        self.assertEqual(data["term"], "Fall")
+        self.assertEqual(data["term"], "final")
         self.assertEqual(data["student_detail"]["name"], "Frank")
         self.assertEqual(len(data["marks"]), 1)
-        self.assertEqual(data["marks"][0]["score"], "85")
+        self.assertEqual(data["marks"][0]["score"], "85.00")
 
 
 class AddMarkSerializerTest(TestCase):
     def setUp(self):
-        self.student = Student.objects.create(name="Gina", email="gina@example.com")
+        self.student = Student.objects.create(name="Gina", email="gina@example.com", date_of_birth="2001-9-10")
         self.subject = Subject.objects.create(name="Chemistry", code="CHEM")
-        self.report_card = ReportCard.objects.create(student=self.student, term="Spring", year="2024")
+        self.report_card = ReportCard.objects.create(student=self.student, term="final", year="2024")
 
     def test_add_mark_serializer_valid(self):
         data = {
